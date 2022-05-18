@@ -4,13 +4,22 @@ import '../models/myTask.dart';
 
 class TaskList extends StatelessWidget {
   final List<MyTask> myTasks;
+  final Function createNewTask;
 
-  TaskList(this.myTasks);
+  TaskList(this.myTasks, this.createNewTask);
 
   @override
   Widget build(BuildContext context) {
     return myTasks.isEmpty
-        ? Text("VIDEEEE")
+        ? Column(
+            children: [
+              Text("New Task"),
+              IconButton(
+                icon: Icon(Icons.add),
+                onPressed: () => createNewTask(),
+              )
+            ],
+          )
         : ListView.builder(
             scrollDirection: Axis.vertical,
             itemCount: myTasks.length,
