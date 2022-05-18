@@ -24,7 +24,10 @@ class TaskList extends StatelessWidget {
             scrollDirection: Axis.vertical,
             itemCount: myTasks.length,
             itemBuilder: ((context, index) {
-              return Text(myTasks[0].name);
+              return Card(
+                elevation: 5,
+                child: ListTile(),
+              );
             }),
           );
   }
