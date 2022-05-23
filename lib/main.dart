@@ -60,12 +60,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final title = "What to do";
+    final title = "What To do";
     final mediaQuery = MediaQuery.of(context);
     final PreferredSizeWidget appBar = (Platform.isIOS
         ? CupertinoNavigationBar(
             middle: Text(
-              'Personal Expenses',
+              'What To DO',
             ),
             trailing: Row(
               mainAxisSize: MainAxisSize.min,
@@ -79,8 +79,9 @@ class _MyHomePageState extends State<MyHomePage> {
           )
         : AppBar(
             title: Text(
-              'Personal Expenses',
+              'When To Do',
             ),
+            centerTitle: true,
             actions: <Widget>[
               IconButton(
                 icon: Icon(Icons.add),
@@ -88,26 +89,6 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ],
           )) as PreferredSizeWidget;
-
-/*         final PreferredSizeWidget appBar =  Platform.isIOS CupertinoNavigationBar(
-      middle: Text("What To Do"),
-    trailing: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                GestureDetector(
-                  child: Icon(CupertinoIcons.add),
-                  onTap: () => _newActivity(),
-                ),
-              ],
-            ),
-            ) : AppBar(
-             title: Text("What To Do"),
-             actions: [
-              IconButton(onPressed: () => _newActivity(), icon: Icon(Icons.add),),
-              ],
-
-
-            ); */
 
     return Scaffold(
       appBar: appBar,
@@ -117,15 +98,15 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Container(
           decoration: BoxDecoration(color: Color.fromRGBO(218, 221, 216, 200)),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Container(
-                decoration: BoxDecoration(color: Colors.blue),
+                //    decoration: BoxDecoration(color: Colors.blue),
                 height: (mediaQuery.size.height -
                         appBar.preferredSize.height -
                         mediaQuery.padding.top) *
-                    0.7,
+                    0.95,
                 child: TaskList(_tasks, _newActivity),
               ),
             ],
