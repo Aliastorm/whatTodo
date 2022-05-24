@@ -9,12 +9,17 @@ class TaskList extends StatelessWidget {
   final List<MyTask> myTasks;
   final Function createNewTask;
 
-  TaskList(this.myTasks, this.createNewTask);
+  TaskList(
+    this.myTasks,
+    this.createNewTask,
+  );
 
   var newFormat = DateFormat("dd-MM-yyyy");
 
   @override
   Widget build(BuildContext context) {
+    myTasks.sort((a, b) => a.expectedDate.compareTo(b.expectedDate));
+
     return myTasks.isEmpty
         ? Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -41,6 +46,9 @@ class TaskList extends StatelessWidget {
                 ),
                 elevation: 5,
                 child: ListTile(
+                  onTap: () {
+                    print("tapped");
+                  },
                   leading: Icon(
                     Icons.watch,
                     color: Colors.red,

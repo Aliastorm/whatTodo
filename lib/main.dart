@@ -34,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void _newActivity() {
     //SHOULD OPEN CREATION WINDOW
     final newActivity = MyTask(
-      id: "123",
+      id: "3",
       name: "Draps",
       description: "changer les draps",
       creationDate: DateTime.now(),
@@ -44,18 +44,30 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _tasks.add(newActivity);
     });
-
-    print(_tasks.length);
   }
 
   final List<MyTask> _tasks = [
-    /*MyTask(
-       id: "123",
-      name: "Draps",
-      description: "changer les draps",
+    MyTask(
+      id: "1",
+      name: "Sols",
+      description: "Laver les sols",
       creationDate: DateTime.now(),
-      expectedDate: DateTime.now(),
-    ),*/
+      expectedDate: DateTime.now().subtract(Duration(days: 2)),
+    ),
+    MyTask(
+      id: "7",
+      name: "Fenetres",
+      description: "Laver les fenetres",
+      creationDate: DateTime.now(),
+      expectedDate: DateTime.now().subtract(Duration(days: 30)),
+    ),
+    MyTask(
+      id: "2",
+      name: "Couette",
+      description: "changer les couettes",
+      creationDate: DateTime.now(),
+      expectedDate: DateTime.now().add(Duration(days: 4)),
+    ),
   ];
 
   @override
